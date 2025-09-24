@@ -9,7 +9,8 @@ A serverless data pipeline that ingests simulated stock ticks in real-time, proc
 
 ## 🏗️ Architecture
 
-(stockmarket.png)
+![AWS Architecture](stockmarket.png)
+
 
 ### Flow of Data
 1. **Producer (Python Script)** generates stock tick data and publishes it to **Amazon SQS**.
