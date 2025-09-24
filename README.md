@@ -9,15 +9,16 @@ A serverless data pipeline that ingests simulated stock ticks in real-time, proc
 
 ## 🏗️ Architecture
 
-![AWS Architecture]("Stock Market Real-Time Data Analytics Pipeline.png")
+(stockmarket.png)
 
 ### Flow of Data
-1. **Producer (Python Script)** generates stock tick data and publishes it to **Amazon SQS**.  
-2. **Amazon SQS** acts as a reliable buffer, ensuring event-driven ingestion and decoupling producers from consumers.  
-3. **AWS Lambda** is triggered by new messages in SQS:  
-   - Stores processed JSON into **Amazon S3** for long-term durability.  
-   - Publishes alerts to **Amazon SNS** when stock prices cross a defined threshold.  
-4. **Amazon Athena** queries structured JSON data directly from S3 for historical analytics without the need for ETL pipelines.
+1. **Producer (Python Script)** generates stock tick data and publishes it to **Amazon SQS**.
+2. **Amazon SQS** acts as a reliable buffer, ensuring event-driven ingestion and decoupling producers from consumers.
+3. **AWS Lambda** is triggered by new messages in SQS:
+   - Stores processed JSON into **Amazon S3** for long-term durability.
+   - Publishes alerts to **Amazon SNS** when stock prices cross a defined threshold.
+4. **Amazon Athena** queries structured JSON data directly from S3 for historical analytics without ETL.
+
  
 
 ---
