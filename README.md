@@ -2,8 +2,20 @@
 
 A serverless data pipeline that ingests simulated stock ticks in real-time, processes and stores them for historical analytics, and sends automated alerts when anomalies occur — all built using **AWS cloud-native services**.
 
-> **Tech Stack**: Amazon SQS · AWS Lambda · Amazon S3 · Amazon SNS · Amazon Athena · IAM · CloudWatch  
-> **Language**: Python 3 with Boto3  
+---
+
+## 🛠️ Tech Stack
+
+**Cloud Services**  
+- Amazon SQS  
+- AWS Lambda  
+- Amazon S3  
+- Amazon SNS  
+- Amazon Athena  
+- IAM & CloudWatch  
+
+**Language**  
+- Python 3 with Boto3  
 
 ---
 
@@ -11,16 +23,13 @@ A serverless data pipeline that ingests simulated stock ticks in real-time, proc
 
 ![AWS Architecture](stockmarket.png)
 
-
 ### Flow of Data
-1. **Producer (Python Script)** generates stock tick data and publishes it to **Amazon SQS**.
-2. **Amazon SQS** acts as a reliable buffer, ensuring event-driven ingestion and decoupling producers from consumers.
-3. **AWS Lambda** is triggered by new messages in SQS:
-   - Stores processed JSON into **Amazon S3** for long-term durability.
-   - Publishes alerts to **Amazon SNS** when stock prices cross a defined threshold.
-4. **Amazon Athena** queries structured JSON data directly from S3 for historical analytics without ETL.
-
- 
+1. **Producer (Python Script)** generates stock tick data and publishes it to **Amazon SQS**.  
+2. **Amazon SQS** acts as a reliable buffer, ensuring event-driven ingestion and decoupling producers from consumers.  
+3. **AWS Lambda** is triggered by new messages in SQS:  
+   - Stores processed JSON into **Amazon S3** for long-term durability.  
+   - Publishes alerts to **Amazon SNS** when stock prices cross a defined threshold.  
+4. **Amazon Athena** queries structured JSON data directly from S3 for historical analytics without ETL.  
 
 ---
 
@@ -54,23 +63,16 @@ A serverless data pipeline that ingests simulated stock ticks in real-time, proc
 
 ## ⚙️ Functionality
 
-1. **Real-Time Data Ingestion**  
-   A Python producer simulates stock ticks and publishes them to Amazon SQS.  
-
-2. **Event-Driven Processing**  
-   AWS Lambda consumes messages from SQS, processes the payload, and branches logic:  
-   - Store in Amazon S3 (`processed/` folder).  
-   - Send alerts via Amazon SNS if threshold conditions are met.  
-
-3. **Historical Querying**  
-   Data in S3 can be queried via Amazon Athena using SQL statements, enabling analysis of stock patterns over time.  
-
-4. **Notifications**  
-   Amazon SNS delivers instant alerts (email/SMS) to subscribed users.  
+- **Real-Time Data Ingestion** → Python producer publishes stock ticks to Amazon SQS.  
+- **Event-Driven Processing** → AWS Lambda consumes SQS messages and:  
+  - Stores JSON in S3 (`processed/` folder).  
+  - Sends alerts via SNS if thresholds are met.  
+- **Historical Querying** → Analysts query JSON data directly in S3 using Athena SQL.  
+- **Notifications** → Amazon SNS delivers instant alerts (email/SMS).  
 
 ---
 
-## 📊 Example Use Case
+## 📊 Example Use Cases
 
 - 📉 Detect unusual stock drops and send alerts to risk managers.  
 - 📈 Identify when stock prices exceed a trading threshold and notify traders.  
@@ -78,7 +80,26 @@ A serverless data pipeline that ingests simulated stock ticks in real-time, proc
 
 ---
 
+## 🚀 Outcome
 
+- Designed a **serverless real-time data pipeline** fully on AWS.  
+- Achieved **decoupled ingestion** and **event-driven processing**.  
+- Implemented **automated anomaly alerts** via SNS.  
+- Enabled **historical analytics** using Athena on raw S3 data.  
 
-👩‍💻 Built by **Sahithi Devineni**  
-Master’s in Information Systems @ Saint Louis University
+---
+
+## 👩‍💻 Built By
+
+**Sahithi Devineni**  
+Master’s in Information Systems @ Saint Louis University  
+
+---
+
+## 📂 Repository & License
+
+- 📂 Repository: [GitHub Link](https://github.com/Sahithid7/stock-market-analytics-pipeline-aws)  
+- 📜 License: MIT  
+
+---
+
