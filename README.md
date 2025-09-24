@@ -78,27 +78,7 @@ A serverless data pipeline that ingests simulated stock ticks in real-time, proc
 
 ---
 
-## ✅ Resume-Ready Highlights
 
-- Designed and implemented a **serverless real-time data pipeline** using AWS native services.  
-- Demonstrated **event-driven architecture** (SQS → Lambda → S3 + SNS).  
-- Built a **data lake solution** for stock analytics with **Athena SQL querying**.  
-- Implemented **alerting mechanisms** via SNS to monitor anomalies.  
-- Followed **best practices in IAM (least privilege)** and **CloudWatch logging** for observability.  
-
----
-
-## 🧹 Cleanup (to avoid charges)
-
-```bash
-aws lambda delete-function --function-name StockProcessor --region us-east-2
-aws sqs delete-queue --queue-url <QUEUE_URL> --region us-east-2
-aws sns delete-topic --topic-arn <SNS_TOPIC_ARN> --region us-east-2
-aws s3 rm s3://<BUCKET_NAME> --recursive --region us-east-2
-aws s3 rb s3://<BUCKET_NAME> --force --region us-east-2
-
-
----
 
 👩‍💻 Built by **Sahithi Devineni**  
 Master’s in Information Systems @ Saint Louis University
